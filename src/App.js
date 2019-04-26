@@ -28,10 +28,8 @@ class App extends Component {
     }
     // Put the image to classify inside a variable
     const image1 = document.getElementById('image1');
-    //img2
-    const image2 = document.getElementById('image2');
 
-    // Make a prediction with a selected image1
+    //Make a prediction with a selected image1
     classifier.predict(image1, 5, function(err, results) {
     // Return the results
       return results;
@@ -41,15 +39,6 @@ class App extends Component {
       this.setPredictions(results)
     })
 
-    // Make a prediction with a selected image2
-    classifier.predict(image2, 5, function(err, results) {
-      // Return the results
-        return results;
-      })
-      .then((results) => {
-        // Set the predictions in the state
-        this.setPredictions(results)
-      })
   }
 
   componentDidMount(){
@@ -80,8 +69,9 @@ class App extends Component {
       { predictions }
 
       {/* an image thats not a tiger */}
-      <img src={ nottiger } id="image2" width="400" alt="" />
-      { predictions }
+      <img src={ nottiger } id="image2" alt="" />
+      {/* { predictions } */}
+
       </div>
     );
   }
